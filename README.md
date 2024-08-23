@@ -11,8 +11,6 @@ This is a visual testing automation project using webdriver io and it's visual s
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
-
 ### Prerequisites
 
 You’ll need [Node.js](https://nodejs.org/en) installed.
@@ -29,6 +27,12 @@ node -v # version should be 16 or higher
 ### Install and Run
 
 ```sh
+# clone the repo
+git clone https://github.com/Saabbir/visual-testing-demo.git
+
+# cd into visual-testing-demo
+cd visual-testing-demo
+
 # install all packages required
 npm i
 
