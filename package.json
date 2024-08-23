@@ -1,0 +1,17 @@
+{
+  "name": "visual-testing-demo",
+  "type": "module",
+  "scripts": {
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^9.0.7",
+    "@wdio/local-runner": "^9.0.7",
+    "@wdio/mocha-framework": "^9.0.6",
+    "@wdio/spec-reporter": "^9.0.7",
+    "@wdio/visual-service": "^5.2.1"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0"
+  }
+}
