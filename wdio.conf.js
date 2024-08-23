@@ -55,6 +55,19 @@ export const config = {
     {
       // capabilities for local browser web tests
       browserName: "chrome", // or "firefox", "microsoftedge", "safari"
+      "goog:chromeOptions": {
+        args: [
+          "--headless", // Run in headless mode
+          "--disable-gpu", // Disable GPU hardware acceleration
+          "--window-size=1280,800", // Set the initial window size
+          "--no-sandbox", // Disable the Chrome sandbox
+          "--disable-extensions", // Disable all Chrome extensions
+          "--disable-notifications", // Disable notifications
+          "--start-maximized", // Start maximized
+          "--disable-infobars", // Remove the "Chrome is being controlled by automated test software" infobar
+          "--mute-audio", // Mute audio
+        ],
+      },
     },
   ],
 
