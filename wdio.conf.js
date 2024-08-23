@@ -109,11 +109,17 @@ export const config = {
     [
       "visual",
       {
-        // Some options, see the docs for more
-        baselineFolder: path.join(process.cwd(), "comparisons", "baseline"),
-        formatImageName: "{tag}-{logName}-{width}x{height}",
-        screenshotPath: path.join(process.cwd(), "comparisons", "differences"),
-        savePerInstance: true,
+        autoSaveBaseline: false,
+        baselineFolder: path.join(
+          process.cwd(),
+          "public/comparisons/baseline-uploads"
+        ),
+        formatImageName: "{tag}",
+        screenshotPath: path.join(
+          process.cwd(),
+          "public/comparisons/differences"
+        ),
+        // savePerInstance: true,
         // clearRuntimeFolder: true,
         // ... more options
       },

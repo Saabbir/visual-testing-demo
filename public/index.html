@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Testing Demo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="l-wrap">
+        <h1>Visual Testing Demo</h1>
+      </div>
+    </header>
+    <main>
+      <div class="c-form-container">
+        <div class="l-wrap">
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="c-form__group">
+              <label for="url">URL:</label>
+              <input
+                type="text"
+                id="url"
+                name="url"
+                required
+                placeholder="https://example.com"
+              />
+            </div>
+
+            <div class="c-form__group">
+              <label for="image">Image:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept=".png"
+                required
+              />
+            </div>
+
+            <div class="c-form__group">
+              <input type="submit" value="Submit" aria-label="Submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="l-wrap">
+        <p>&copy; Echologyx Inc; All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
