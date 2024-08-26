@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Side by Side Images</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="c-side-by-side-images">
+        <div class="c-img-wrapper c-img-wrapper--before">
+          <div class="c-img-wrapper__label">Design</div>
+          <img
+            src="/comparisons/baseline-uploads/<%= nameWithExt %>"
+            alt="Baseline Image"
+          />
+        </div>
+        <div class="c-img-wrapper c-img-wrapper--after">
+          <div class="c-img-wrapper__label">Mismatch</div>
+          <img
+            src="/comparisons/differences/diff/<%= nameWithExt %>"
+            alt="Difference Image"
+          />
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="l-wrap">
+        <p>&copy; Echologyx Inc; All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

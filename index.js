@@ -3,13 +3,14 @@ import express from "express";
 import { existsSync, mkdirSync } from "fs";
 import multer from "multer";
 import path from "path";
-import yargs from "yargs";
-const argv = yargs(process.argv).argv;
 
 const app = express();
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Set EJS as the templating engine
+app.set("view engine", "ejs");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -38,9 +39,7 @@ app.post("/upload", upload.single("image"), (req, res) => {
   const nameWithExt = req.file.nameWithExt;
   const nameWithoutExt = req.file.nameWithoutExt;
 
-  // Respond immediately to the client
-  // res.status(202).send("Upload received, processing in the background...");
-
+  // Get the path to the wdio.conf.js file
   const wdConfigPath = path.join(process.cwd(), "wdio.conf.js");
 
   // Spawn a child process to run the WebDriverIO test using npx
@@ -62,42 +61,9 @@ app.post("/upload", upload.single("image"), (req, res) => {
   child.on("exit", (code) => {
     console.log(`Child process exited with code ${code}`);
     if (code === 0) {
-      // res.status(200).send("Upload processed successfully.");
-
-      return res.status(200).send(/*html*/ `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Side by Side Images</title>
-          <link rel="stylesheet" href="/style.css">
-        </head>
-        <body>
-          <!-- <header>
-            <div class="l-wrap">
-              <h1>Visual Testing Demo</h1>
-            </div>
-          </header> -->
-          <main>
-            <div class="c-side-by-side-images">
-              <div class="c-img-wrapper c-img-wrapper--before">
-                <div class="c-img-wrapper__label">Design</div>
-                <img src="/comparisons/baseline-uploads/${nameWithExt}" alt="Baseline Image">
-              </div>
-              <div class="c-img-wrapper c-img-wrapper--after">
-                <div class="c-img-wrapper__label">Mismatch</div>
-                <img src="/comparisons/differences/diff/${nameWithExt}" alt="Difference Image">
-              </div>
-            </div>
-          </main>
-          <!-- <footer>
-            <div class="l-wrap">
-              <p>&copy; Echologyx Inc; All rights reserved.</p>
-            </div>
-          </footer> -->
-        </body>
-        </html>
-        `);
+      return res.status(200).render("diff", {
+        nameWithExt,
+      });
     } else {
       res.status(500).send("There was an error processing your upload.");
     }
