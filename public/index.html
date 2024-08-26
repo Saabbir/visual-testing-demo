@@ -13,6 +13,9 @@
       </div>
     </header>
     <main>
+      <div class="c-loading c-loading--hidden">
+        <div class="loader"></div>
+      </div>
       <div class="c-form-container">
         <div class="l-wrap">
           <form action="/upload" method="post" enctype="multipart/form-data">
@@ -50,5 +53,14 @@
         <p>&copy; Echologyx Inc; All rights reserved.</p>
       </div>
     </footer>
+
+    <script>
+      document.forms[0].addEventListener("submit", function () {
+        document.querySelector(".c-form-container").style.display = "none";
+        document
+          .querySelector(".c-loading")
+          .classList.remove("c-loading--hidden");
+      });
+    </script>
   </body>
 </html>

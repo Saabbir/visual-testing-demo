@@ -1,5 +1,6 @@
 import spawn from "cross-spawn";
 import express from "express";
+import { existsSync, mkdirSync } from "fs";
 import multer from "multer";
 import path from "path";
 import yargs from "yargs";
@@ -10,12 +11,15 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Set the destination folder for uploaded images
-// const upload = multer({ dest: "multer_uploads/" });
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/comparisons/baseline-uploads");
+    const path = "./public/comparisons/baseline-uploads";
+
+    if (!existsSync(path)) {
+      mkdirSync(path, { recursive: true });
+    }
+
+    cb(null, path);
   },
   filename: function (req, file, cb) {
     const ext = path.extname(file.originalname);

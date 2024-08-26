@@ -67,6 +67,7 @@ export const config = {
           "--disable-infobars", // Remove the "Chrome is being controlled by automated test software" infobar
           "--mute-audio", // Mute audio
         ],
+        excludeSwitches: ["enable-automation"], // This switch also helps in disabling the infobar
       },
     },
   ],
