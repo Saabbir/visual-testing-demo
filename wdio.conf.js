@@ -133,9 +133,14 @@ export const config = {
           process.cwd(),
           "public/comparisons/differences"
         ),
-        // savePerInstance: true,
-        // clearRuntimeFolder: true,
-        // ... more options
+        hideScrollBars: false, // This is mandatory
+        // ignoreColors: true,
+        // ignoreLess: true,
+        // ignoreNothing: true
+        // ignoreTransparentPixel: true,
+        // rawMisMatchPercentage: true,
+        // returnAllCompareData: true,
+        // saveAboveTolerance: 5,
       },
     ],
   ],
