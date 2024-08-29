@@ -1,6 +1,15 @@
 import path from "node:path";
 
-const now = Date.now() + "";
+// Parse the window size argument from the command line
+const args = process.argv.slice(2);
+let windowSize = args.find((arg) => arg.startsWith("--windowSize="));
+windowSize = windowSize ? windowSize.split("=")[1] : "1920x1080"; // Default to 1920x1080 if not provided
+
+const [width, height] = windowSize.split("x").map(Number);
+
+setTimeout(() => {
+  console.log("Saabbir:", "width", width, "height", height);
+}, 5000);
 
 export const config = {
   //
@@ -59,7 +68,7 @@ export const config = {
         args: [
           "--headless", // Run in headless mode
           "--disable-gpu", // Disable GPU hardware acceleration
-          "--window-size=1280,800", // Set the initial window size
+          `--window-size=${width},${height}`, // Set the initial window size
           "--no-sandbox", // Disable the Chrome sandbox
           "--disable-extensions", // Disable all Chrome extensions
           "--disable-notifications", // Disable notifications
@@ -79,7 +88,7 @@ export const config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: "silent",
   //
   // Set specific log levels per logger
   // loggers:
@@ -123,6 +132,7 @@ export const config = {
     [
       "visual",
       {
+        logLevel: "silent", // or 'warn', 'error', 'silent'
         autoSaveBaseline: false,
         baselineFolder: path.join(
           process.cwd(),

@@ -7,11 +7,21 @@ function runWdioTest({
   wdConfigPath,
   req,
   res,
+  width,
+  height,
 }) {
   // Spawn a child process to run the WebDriverIO test using npx
   const child = spawn(
     "npx",
-    ["wdio", wdConfigPath, "--url", url, "--tag", nameWithoutExt],
+    [
+      "wdio",
+      wdConfigPath,
+      `--windowSize=${width}x${height}`,
+      "--url",
+      url,
+      "--tag",
+      nameWithoutExt,
+    ],
     {
       stdio: "inherit", // Inherit stdio so you can see the output in the console
     }
