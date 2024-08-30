@@ -4,6 +4,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Notes](#notes)
 
 ## About <a name = "about"></a>
 
@@ -36,12 +37,11 @@ cd visual-testing-demo
 # install all packages required
 npm i
 
-# run test
+# run single test
 npx wdio run ./wdio.conf.js --spec visual-test.js
 
-# if you ran the 👆 above command for the first time,
-# it will create the baseline image
-# Run the above command again to see the comparisons
+# run all tests
+npm run dev
 ```
 
 # Notes
