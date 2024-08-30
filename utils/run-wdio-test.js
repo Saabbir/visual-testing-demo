@@ -16,11 +16,10 @@ function runWdioTest({
     [
       "wdio",
       wdConfigPath,
-      `--windowSize=${width}x${height}`,
-      "--url",
-      url,
-      "--tag",
-      nameWithoutExt,
+      `--windowWidth=${width}`,
+      `--windowHeight=${height}`,
+      `--url=${url}`,
+      `--tag=${nameWithoutExt}`,
     ],
     {
       stdio: "inherit", // Inherit stdio so you can see the output in the console

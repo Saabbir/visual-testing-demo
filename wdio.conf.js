@@ -1,15 +1,22 @@
+// import chalk from "chalk";
 import path from "node:path";
+import yargs from "yargs";
+const argv = yargs(process.argv).argv;
 
-// Parse the window size argument from the command line
-const args = process.argv.slice(2);
-let windowSize = args.find((arg) => arg.startsWith("--windowSize="));
-windowSize = windowSize ? windowSize.split("=")[1] : "1920x1080"; // Default to 1920x1080 if not provided
+const windowWidth = argv.windowWidth;
+const windowHeight = argv.windowHeight;
 
-const [width, height] = windowSize.split("x").map(Number);
-
-setTimeout(() => {
-  console.log("Saabbir:", "width", width, "height", height);
-}, 5000);
+// setTimeout(() => {
+//   console.log(
+//     chalk.bgYellow(
+//       "Saabbir:",
+//       "windowWidth",
+//       windowWidth,
+//       "windowHeight",
+//       windowHeight
+//     )
+//   );
+// }, 5000);
 
 export const config = {
   //
@@ -66,9 +73,9 @@ export const config = {
       browserName: "chrome", // or "firefox", "microsoftedge", "safari"
       "goog:chromeOptions": {
         args: [
-          "--headless", // Run in headless mode
+          // "--headless", // Run in headless mode
           "--disable-gpu", // Disable GPU hardware acceleration
-          `--window-size=${width},${height}`, // Set the initial window size
+          // `--window-size=${windowWidth},${windowHeight}`, // Set the initial window size
           "--no-sandbox", // Disable the Chrome sandbox
           "--disable-extensions", // Disable all Chrome extensions
           "--disable-notifications", // Disable notifications

@@ -43,3 +43,9 @@ npx wdio run ./wdio.conf.js --spec visual-test.js
 # it will create the baseline image
 # Run the above command again to see the comparisons
 ```
+
+# Notes
+
+- headless feature doesn't work with `browser.setViewport` properly
+- `checkScreen` method works well while `checkFullPageScreen` doesn't
+- some color differences are shown event if the images are identical
