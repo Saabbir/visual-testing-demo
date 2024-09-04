@@ -1,22 +1,4 @@
-// import chalk from "chalk";
 import path from "node:path";
-import yargs from "yargs";
-const argv = yargs(process.argv).argv;
-
-const windowWidth = argv.windowWidth;
-const windowHeight = argv.windowHeight;
-
-// setTimeout(() => {
-//   console.log(
-//     chalk.bgYellow(
-//       "Saabbir:",
-//       "windowWidth",
-//       windowWidth,
-//       "windowHeight",
-//       windowHeight
-//     )
-//   );
-// }, 5000);
 
 export const config = {
   //
@@ -75,7 +57,7 @@ export const config = {
         args: [
           // "--headless", // Run in headless mode
           "--disable-gpu", // Disable GPU hardware acceleration
-          // `--window-size=${windowWidth},${windowHeight}`, // Set the initial window size
+          // `--window-size=1280,800`, // Set the initial window size
           "--no-sandbox", // Disable the Chrome sandbox
           "--disable-extensions", // Disable all Chrome extensions
           "--disable-notifications", // Disable notifications

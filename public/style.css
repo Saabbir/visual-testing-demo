@@ -193,3 +193,12 @@ label {
     clip-path: inset(0 -1ch 0 0);
   }
 }
+
+a.c-back-to-homepage {
+  box-sizing: border-box;
+  padding: 16px;
+  padding-left: 5vw;
+  position: absolute;
+  text-align: left;
+  width: 100%;
+}

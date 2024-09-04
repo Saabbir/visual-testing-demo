@@ -48,4 +48,4 @@ npm run dev
 
 - headless feature doesn't work with `browser.setViewport` properly
 - `checkScreen` method works well while `checkFullPageScreen` doesn't
-- some color differences are shown event if the images are identical
+- sometimes color differences are shown event if the images are identical
